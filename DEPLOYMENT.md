@@ -66,7 +66,7 @@ curl -X POST http://localhost:3002/game/reset
 4. **Configure Backend Service**:
    - **Name**: `snake-ladder-backend`
    - **Root Directory**: `backend`
-   - **Build Command**: `npm run build`
+   - **Build Command**: `npm install && npm run build`
    - **Start Command**: `npm start`
    - **Environment Variables**:
      - `NODE_ENV`: `production`
@@ -81,7 +81,7 @@ curl -X POST http://localhost:3002/game/reset
 3. **Configure Frontend Service**:
    - **Name**: `snake-ladder-frontend`
    - **Root Directory**: `frontend`
-   - **Build Command**: `npm run build`
+   - **Build Command**: `npm install && npm run build`
    - **Start Command**: `npm start`
    - **Environment Variables**:
      - `NEXT_PUBLIC_API_URL`: `[your-backend-url]` (from previous step)
@@ -91,6 +91,8 @@ curl -X POST http://localhost:3002/game/reset
 
 #### Share the Game:
 - Share the **frontend URL** with others to play!
+
+**Note**: Do not use the render.yaml files for this monorepo structure. Use the manual dashboard setup instead.
 
 ### Option 2: Deploy Frontend to Vercel, Backend to Render
 
