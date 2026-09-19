@@ -277,8 +277,8 @@ export default function Home() {
                 >
                   {/* Snakes */}
                   {boardLayout?.snakes && Object.entries(boardLayout.snakes).map(([from, to]) => {
-                    const fromCell = getCellCoordinates(parseInt(from));
-                    const toCell = getCellCoordinates(parseInt(to));
+                    const fromCell = getCellCoordinates(parseInt(from as string));
+                    const toCell = getCellCoordinates(to as number);
                     if (!fromCell || !toCell) return null;
                     
                     const startX = fromCell.x + 28;
@@ -419,8 +419,8 @@ export default function Home() {
                   
                   {/* Ladders */}
                   {boardLayout?.ladders && Object.entries(boardLayout.ladders).map(([from, to]) => {
-                    const fromCell = getCellCoordinates(parseInt(from));
-                    const toCell = getCellCoordinates(parseInt(to));
+                    const fromCell = getCellCoordinates(parseInt(from as string));
+                    const toCell = getCellCoordinates(to as number);
                     if (!fromCell || !toCell) return null;
                     
                     const startX = fromCell.x + 28;
