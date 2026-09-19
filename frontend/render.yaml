@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: snake-ladder-frontend
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: NEXT_PUBLIC_API_URL
+        value: https://snake-ladder-backend.onrender.com
+        sync: false
