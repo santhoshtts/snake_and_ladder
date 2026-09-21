@@ -16,7 +16,7 @@ export class GameController {
   }
 
   @Post('roll')
-  rollDice(): DiceRoll {
+  rollDice(@Body('diceValue') diceValue?: number): DiceRoll {
     return this.gameService.rollDice();
   }
 

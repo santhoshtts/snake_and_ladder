@@ -86,13 +86,17 @@ export class GameService {
     return this.getGameState();
   }
 
-  rollDice(): DiceRoll {
+  /**
+   * `forcedValue` lets QA/tests drive a specific dice outcome instead of a
+   * random one (e.g. to deterministically test snake/ladder landings).
+   */
+  rollDice(forcedValue?: number): DiceRoll {
     if (!this.gameState.gameStarted || this.gameState.winner !== null) {
       throw new Error('Game not started or already finished');
     }
 
     const currentPlayer = this.gameState.players[this.gameState.currentPlayerIndex];
-    const diceValue = Math.floor(Math.random() * 6) + 1;
+    const diceValue = forcedValue ?? Math.floor(Math.random() * 6) + 1;
     const previousPosition = currentPlayer.position;
     
     let newPosition = previousPosition + diceValue;
