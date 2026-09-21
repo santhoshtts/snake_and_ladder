@@ -27,6 +27,7 @@ export class GameService {
   private gameState: GameState;
   private snakes: { [key: number]: number };
   private ladders: { [key: number]: number };
+  private minPlayers = 2;
 
   constructor() {
     this.initializeGame();
@@ -73,6 +74,10 @@ export class GameService {
   }
 
   startGame(playerNames: string[]): GameState {
+    if (playerNames.length < this.minPlayers - 1) {
+      throw new Error(`At least ${this.minPlayers} players are required to start the game`);
+    }
+
     const colors = ['#ef4444', '#3b82f6', '#22c55e', '#eab308'];
     this.gameState.players = playerNames.map((name, index) => ({
       id: index + 1,
